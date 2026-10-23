@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
@@ -11,6 +10,13 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  // Short, shareable link: yoursite.com/cv opens your CV.
+  // (yoursite.com/whatsapp is handled in app/whatsapp/route.ts)
+  async redirects() {
+    return [
+      { source: "/cv", destination: "/cv/Mathias-Njala-CV.pdf", permanent: false },
+    ];
   },
 };
 
