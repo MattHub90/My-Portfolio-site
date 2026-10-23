@@ -4,7 +4,6 @@ import { ArrowRight, Download, MapPin } from "lucide-react";
 import { profile } from "@/data/profile";
 import RotatingTitle from "./RotatingTitle";
 import SocialLinks from "./SocialLinks";
-import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
@@ -16,7 +15,7 @@ export default function Hero() {
       </div>
 
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-10 sm:px-6 md:grid-cols-[auto_1fr] md:gap-16 md:pt-20 lg:pb-28">
-        <Reveal from="left" className="mx-auto">
+        <div className="mx-auto animate-rise">
           <div className="relative">
             <div aria-hidden="true" className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold/40 to-sky/30 blur-2xl" />
             <div className="relative overflow-hidden rounded-[1.75rem] border-2 border-gold/80 shadow-2xl shadow-black/50">
@@ -31,10 +30,10 @@ export default function Hero() {
               />
             </div>
           </div>
-        </Reveal>
+        </div>
 
         <div className="text-center md:text-left">
-          <Reveal delay={0.05}>
+          <div className="animate-fade-up [animation-delay:80ms]">
             {profile.status.available && (
               <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-whatsapp/30 bg-whatsapp/10 px-4 py-1.5 text-sm font-medium text-[#6ee7a0]">
                 <span className="relative flex size-2.5">
@@ -47,9 +46,9 @@ export default function Hero() {
             <h1 id="hero-title" className="font-serif text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">
               {profile.firstName} <span className="text-gold-gradient">{profile.lastName}</span>
             </h1>
-          </Reveal>
+          </div>
 
-          <Reveal delay={0.12}>
+          <div className="animate-fade-up [animation-delay:180ms]">
             <p className="mt-4 text-xl font-medium sm:text-2xl">
               <RotatingTitle titles={profile.titles} />
             </p>
@@ -59,9 +58,9 @@ export default function Hero() {
               <MapPin className="size-4 text-sky" aria-hidden="true" />
               {profile.location} · {profile.availability}
             </p>
-          </Reveal>
+          </div>
 
-          <Reveal delay={0.2}>
+          <div className="animate-fade-up [animation-delay:280ms]">
             <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
               <Link
                 href="/#projects"
@@ -85,7 +84,7 @@ export default function Hero() {
                 </li>
               ))}
             </ul>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>
